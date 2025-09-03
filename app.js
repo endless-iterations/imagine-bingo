@@ -1,11 +1,11 @@
 const board = document.getElementById('bingo-board');
 
 const phrases = [
-  "Lost Radio", "ipsum", "Can't Park Here", "ipsum", "Death of a Radio",
-  "Stay Hydrated", "Wooks Do Be Wookin'", "ipsum", "Nose Sans Clown", "ipsum",
-  "Where's The TP?!", "ipsum", "Radio Cross-Chatter", "ipsum", "Not Here to Rage",
-  "ipsum", "Troll Toll", "ipsum", "Clowns Do Be Clownin'", "DFT Bring A Towel",
-  "Radio-Resurrection ", "ipsum", "Anymore Wristbands", "ipsum", "Found Radio"
+  "Lost Radio", "Where's The Map?!", "Can't Park Here", "Mythical Creature", "Death of a Radio",
+  "Stay Hydrated", "Wooks Do Be Wookin'", "Hardware Hero", "Nose Sans Clown", "Camp-Mom Love",
+  "Where's The TP?!", "New Friend", "Radio Cross-Chatter", "New Friend, Again", "Not Here to Rage",
+  "Emotional Ping-Pong", "Troll Toll", "ipsum", "Clowns Do Be Clownin'", "DFT Bring A Towel",
+  "Radio-Resurrection ", "ipsum", "Anymore Wristbands", "Ninja Rickroll", "Found Radio"
 ];
 
 function renderBoard(state = null) {
@@ -65,3 +65,4 @@ window.addEventListener('load', loadState);
 if ('serviceWorker' in navigator) {
   navigator.serviceWorker.register('sw.js');
 }
+
