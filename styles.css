@@ -78,7 +78,7 @@ body {
   align-items: center;
   justify-content: center;
   text-align: center;
-  font-size: 4vmin;
+  font-size: 3vmin;
   word-break: break-word;
   background: rgba(255, 255, 255, 0.5);
   border: 1px solid #ccc;
@@ -101,3 +101,4 @@ body {
   color: rgb(0, 0, 0);
 
 }
+
