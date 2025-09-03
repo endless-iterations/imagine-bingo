@@ -11,25 +11,33 @@
 <div id="bingo-wrapper">
   <label id="edit-label">
     <input type="checkbox" id="edit-mode" />
-    Edit
+    Edit Mode
   </label>
-  <label>
-  <input type="checkbox" id="festival-toggle" />
-  Festival
-</label>
-<label>
-  <input type="checkbox" id="wifi-toggle" />
-  Wi-Fi
-</label>
-<!-- QR overlays -->
-<div id="festival-qr" class="qr hidden">
-  <img src="festival-guide-qr.jpg" alt="Festival Guide QR" />
-</div>
-<div id="wifi-qr" class="qr hidden">
-  <img src="wifi-qr.jpg" alt="Wi-Fi QR Code" />
-</div>
+  <label id="wifi-label">
+    <input type="checkbox" id="wifi-mode" style="margin-right: 5px;">
+    Wifi
+  </label>
+  <label id="guide-label">
+    <input type="checkbox" id="guide-mode" style="margin-right: 5px;">
+    Guide
+  </label>
+  <img id="wifi-qr" src="wifi-qr.jpg" style="display:none; position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); width:87%; aspect-ratio:1/1; max-width:100%; max-height:100%; z-index:10; pointer-events:none;" alt="WiFi QR" />
+  <img id="guide-qr" src="festival-guide-qr.jpg" style="display:none; position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); width:87%; aspect-ratio:1/1; max-width:100%; max-height:100%; z-index:10; pointer-events:none;" alt="Guide QR" />
+  
   <div id="bingo-board"></div>
 </div>
   <script src="./app.js"></script>
+  <script>
+    const wifiMode = document.getElementById('wifi-mode');
+    const wifiQR = document.getElementById('wifi-qr');
+    wifiMode.addEventListener('change', function() {
+      wifiQR.style.display = wifiMode.checked ? 'block' : 'none';
+    });
+    const guideMode = document.getElementById('guide-mode');
+    const guideQR = document.getElementById('guide-qr');
+    guideMode.addEventListener('change', function() {
+      guideQR.style.display = guideMode.checked ? 'block' : 'none';
+    });
+  </script>
 </body>
 </html>
