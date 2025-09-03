@@ -1,3 +1,27 @@
+#guide-label {
+  position: absolute;
+  top: 104px;
+  left: 8px;
+  font-size: 3vmin;
+  color: white;
+  z-index: 2;
+  background: rgba(0, 0, 0, 0.5);
+  padding: 6px 10px;
+  border-radius: 6px;
+  user-select: none;
+}
+#wifi-label {
+  position: absolute;
+  top: 56px;
+  left: 8px;
+  font-size: 3vmin;
+  color: white;
+  z-index: 2;
+  background: rgba(0, 0, 0, 0.5);
+  padding: 6px 10px;
+  border-radius: 6px;
+  user-select: none;
+}
 
 html, body {
   margin: 0;
@@ -71,26 +95,6 @@ body {
 
 #edit-mode, #edit-label {
   pointer-events: auto;
-}
-
-.qr {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 10;
-  background: rgba(0, 0, 0, 0);
-  padding: 12px;
-  border-radius: 8px;
-}
-
-.qr img {
-  width: 90vw;
-  height: 90vw;
-}
-
-.hidden {
-  display: none;
 }
 
 .square {
