@@ -11,8 +11,23 @@
 <div id="bingo-wrapper">
   <label id="edit-label">
     <input type="checkbox" id="edit-mode" />
-    Edit Mode
+    Edit
   </label>
+  <label>
+  <input type="checkbox" id="festival-toggle" />
+  Festival
+</label>
+<label>
+  <input type="checkbox" id="wifi-toggle" />
+  Wi-Fi
+</label>
+<!-- QR overlays -->
+<div id="festival-qr" class="qr hidden">
+  <img src="festival-guide-qr.jpg" alt="Festival Guide QR" />
+</div>
+<div id="wifi-qr" class="qr hidden">
+  <img src="wifi-qr.jpg" alt="Wi-Fi QR Code" />
+</div>
   <div id="bingo-board"></div>
 </div>
   <script src="./app.js"></script>
