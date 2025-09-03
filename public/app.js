@@ -1,4 +1,5 @@
 const board = document.getElementById('bingo-board');
+
 const phrases = [
   "Lost Radio", "ipsum", "Can't Park Here", "ipsum", "Death of a Radio",
   "Stay Hydrated", "Wooks Do Be Wookin'", "ipsum", "Nose Sans Clown", "ipsum",
@@ -15,7 +16,17 @@ function renderBoard(state = null) {
     div.textContent = text;
     if (state && state[i]?.marked) div.classList.add('marked');
     div.addEventListener('click', () => {
-      div.classList.toggle('marked');
+      const editMode = document.getElementById('edit-mode').checked;
+      const isMarked = div.classList.contains('marked');
+
+      if (editMode) {
+        // Toggle freely
+        div.classList.toggle('marked');
+      } else if (!isMarked) {
+        // Only allow marking
+        div.classList.add('marked');
+      }
+
       saveState();
     });
     board.appendChild(div);

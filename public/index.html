@@ -2,15 +2,19 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
   <title>Bingo PWA</title>
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
   <img src="background.jpg" alt="Background" class="bingo-bg" />
-  <div id="bingo-wrapper">
-    <div id="bingo-board"></div>
-  </div>
+<div id="bingo-wrapper">
+  <label id="edit-label">
+    <input type="checkbox" id="edit-mode" />
+    Edit Mode
+  </label>
+  <div id="bingo-board"></div>
+</div>
   <script src="app.js"></script>
 </body>
 </html>
