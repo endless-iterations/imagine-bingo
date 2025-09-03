@@ -79,7 +79,7 @@ body {
   justify-content: center;
   text-align: center;
   font-size: 4vmin;
-  word-break: keep-all;
+  word-break: break-word;
   background: rgba(255, 255, 255, 0.5);
   border: 1px solid #ccc;
   cursor: pointer;
@@ -99,4 +99,5 @@ body {
 .square.marked {
   background: rgba(255, 209, 57, 0.6);
   color: rgb(0, 0, 0);
+
 }
