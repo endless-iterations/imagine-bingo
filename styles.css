@@ -73,6 +73,26 @@ body {
   pointer-events: auto;
 }
 
+.qr {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+  background: rgba(0, 0, 0, 0);
+  padding: 12px;
+  border-radius: 8px;
+}
+
+.qr img {
+  width: 90vw;
+  height: 90vw;
+}
+
+.hidden {
+  display: none;
+}
+
 .square {
   display: flex;
   align-items: center;
