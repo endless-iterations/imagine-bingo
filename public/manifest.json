@@ -1,7 +1,7 @@
 {
   "name": "Bingo PWA",
   "short_name": "Bingo",
-  "start_url": "",
+  "start_url": "https://endless-iterations.github.io/imagine-bingo/",
   "display": "standalone",
   "background_color": "#fdf6e3",
   "theme_color": "#ffcc00",
