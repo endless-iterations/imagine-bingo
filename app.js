@@ -4,8 +4,8 @@ const phrases = [
   "Lost Radio", "Where's The Map?!", "Can't Park Here", "Mythical Creature", "Death of a Radio",
   "Stay Hydrated", "Wooks Do Be Wookin'", "Hardware Hero", "Nose Sans Clown", "Camp-Mom Love",
   "Where's The TP?!", "New Friend", "Radio Cross-Chatter", "New Friend, Again", "Not Here to Rage",
-  "Emotional Ping-Pong", "Troll Toll", "ipsum", "Clowns Do Be Clownin'", "DFT Bring A Towel",
-  "Radio-Resurrection ", "ipsum", "Anymore Wristbands", "Ninja Rickroll", "Found Radio"
+  "Emotional Ping-Pong", "Troll Toll", "Put Your Bits Away", "Clowns Do Be Clownin'", "DFT Bring A Towel",
+  "Radio-Resurrection ", "Dad's Mad", "Anymore Wristbands", "Ninja Rickroll", "Found Radio"
 ];
 
 function renderBoard(state = null) {
@@ -15,35 +15,21 @@ function renderBoard(state = null) {
     div.className = 'square';
     div.textContent = text;
     if (state && state[i]?.marked) div.classList.add('marked');
-
     div.addEventListener('click', () => {
       const editMode = document.getElementById('edit-mode').checked;
       const isMarked = div.classList.contains('marked');
 
       if (editMode) {
+        // Toggle freely
         div.classList.toggle('marked');
       } else if (!isMarked) {
+        // Only allow marking
         div.classList.add('marked');
       }
 
       saveState();
     });
-
     board.appendChild(div);
-  });
-
-  // ✅ Attach QR toggle listeners once, outside the loop
-  const festivalToggle = document.getElementById('festival-toggle');
-  const wifiToggle = document.getElementById('wifi-toggle');
-  const festivalQR = document.getElementById('festival-qr');
-  const wifiQR = document.getElementById('wifi-qr');
-
-  festivalToggle.addEventListener('change', () => {
-    festivalQR.classList.toggle('hidden', !festivalToggle.checked);
-  });
-
-  wifiToggle.addEventListener('change', () => {
-    wifiQR.classList.toggle('hidden', !wifiToggle.checked);
   });
 }
 
@@ -65,4 +51,3 @@ window.addEventListener('load', loadState);
 if ('serviceWorker' in navigator) {
   navigator.serviceWorker.register('sw.js');
 }
-
