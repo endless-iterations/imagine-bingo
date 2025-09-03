@@ -15,21 +15,35 @@ function renderBoard(state = null) {
     div.className = 'square';
     div.textContent = text;
     if (state && state[i]?.marked) div.classList.add('marked');
+
     div.addEventListener('click', () => {
       const editMode = document.getElementById('edit-mode').checked;
       const isMarked = div.classList.contains('marked');
 
       if (editMode) {
-        // Toggle freely
         div.classList.toggle('marked');
       } else if (!isMarked) {
-        // Only allow marking
         div.classList.add('marked');
       }
 
       saveState();
     });
+
     board.appendChild(div);
+  });
+
+  // ✅ Attach QR toggle listeners once, outside the loop
+  const festivalToggle = document.getElementById('festival-toggle');
+  const wifiToggle = document.getElementById('wifi-toggle');
+  const festivalQR = document.getElementById('festival-qr');
+  const wifiQR = document.getElementById('wifi-qr');
+
+  festivalToggle.addEventListener('change', () => {
+    festivalQR.classList.toggle('hidden', !festivalToggle.checked);
+  });
+
+  wifiToggle.addEventListener('change', () => {
+    wifiQR.classList.toggle('hidden', !wifiToggle.checked);
   });
 }
 
