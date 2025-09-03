@@ -48,6 +48,83 @@ function loadState() {
 
 window.addEventListener('load', loadState);
 
+// Add unlabeled toggle and logic for special image
+const controls = document.getElementById('controls') || (() => {
+  const c = document.createElement('div');
+  c.id = 'controls';
+  document.body.insertBefore(c, board);
+  return c;
+})();
+
+const wifiToggle = document.getElementById('wifi-toggle') || (() => {
+  const t = document.createElement('input');
+  t.type = 'checkbox';
+  t.id = 'wifi-toggle';
+  controls.appendChild(t);
+  return t;
+})();
+
+const guideToggle = document.getElementById('guide-toggle') || (() => {
+  const t = document.createElement('input');
+  t.type = 'checkbox';
+  t.id = 'guide-toggle';
+  controls.appendChild(t);
+  return t;
+})();
+
+const secretToggle = document.getElementById('secret-toggle') || (() => {
+  const t = document.createElement('input');
+  t.type = 'checkbox';
+  t.id = 'secret-toggle';
+  t.style.marginLeft = '1em';
+  controls.appendChild(t);
+  return t;
+})();
+
+let secretImg = document.getElementById('secret-img');
+if (!secretImg) {
+  secretImg = document.createElement('img');
+  secretImg.id = 'secret-img';
+  secretImg.style.display = 'none';
+  secretImg.style.maxWidth = '100vw';
+  secretImg.style.maxHeight = '100vh';
+  secretImg.src = 'dad.jpg'; // Change to your secret image filename
+  document.body.appendChild(secretImg);
+}
+
+function checkSecretCondition() {
+  const editMode = document.getElementById('edit-mode')?.checked;
+  const wifi = wifiToggle.checked;
+  const guide = guideToggle.checked;
+  const squares = Array.from(document.querySelectorAll('.square'));
+  const dadsMad = squares.find(sq => sq.textContent === "Dad's Mad" && sq.classList.contains('marked'));
+  const notHere = squares.find(sq => sq.textContent === "Not Here to Rage" && sq.classList.contains('marked'));
+  return !editMode && wifi && guide && dadsMad && notHere;
+}
+
+secretToggle.addEventListener('change', () => {
+  if (secretToggle.checked && checkSecretCondition()) {
+    secretImg.style.display = '';
+  } else {
+    secretImg.style.display = 'none';
+    secretToggle.checked = false;
+  }
+});
+
+// Hide image if state changes
+function monitorSecret() {
+  if (!checkSecretCondition()) {
+    secretImg.style.display = 'none';
+    secretToggle.checked = false;
+  }
+}
+
+wifiToggle.addEventListener('change', monitorSecret);
+guideToggle.addEventListener('change', monitorSecret);
+document.addEventListener('click', monitorSecret, true);
+document.getElementById('edit-mode')?.addEventListener('change', monitorSecret);
+
 if ('serviceWorker' in navigator) {
   navigator.serviceWorker.register('sw.js');
 }
+
